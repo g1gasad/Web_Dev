@@ -1,3 +1,13 @@
+/* .home{
+    margin-left: 0px;
+    padding: 0px;
+}
+.reachout{
+    text-align: center;
+}
+.aboutus{
+    text-align: right;
+} */
 .cris-quote {
     /* textsiz; */
     margin-top: 20px;
@@ -9,8 +19,11 @@
 }
 
 .cris-image {
-    margin-left: 40px;
+    margin-left: 40px; /* Existing property */
+    border: 2px solid #000000; /* Adds a solid black border with 5px thickness */
+    border-radius: 10px; /* Optional: To give rounded corners */
 }
+
 
 .flex-container {
     display: flex;
@@ -19,32 +32,54 @@
     align-items: center;
 }
 
-body {
+.light-theme {
+    color: rgb(0, 0, 0);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(255, 239, 239);
+    margin: 10px;
+    padding: 0px, 0px, 0px, 0px;
+    line-height: 1.6;
+}
+
+.dark-theme {
+    color: white;
     font-family: Arial, sans-serif;
-    background-color: rgb(255, 251, 236);
+    background-color: rgb(0, 0, 0);
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
 header {
-    background: #3ae5cb;
-    color: rgb(0, 0, 0);
-    padding: 1rem 0;
+    background: rgb(36, 36, 36);
+    /* color: rgb(255, 103, 209); */
+    color: #3ae5cb;
+    padding: 2px;
     text-align: center;
     size: 10px;
 }
-
+h1 {
+    margin: 1px;
+    font-size: 70px;
+    padding-bottom: 0px;
+}
+.header-info{
+    padding-top: 0px;
+    font-size: 20px;
+}
 nav {
     background: #0386a6;
-    padding: 0.5rem;
-    text-align: center;
+    padding: 0.3rem;
+    /* text-align: center; */
 }
 
 nav a {
+    padding-left: 220px;
+    padding-right: 100px;
     color: white;
-    margin: 0 10px;
+    /* margin: 10px; */
     text-decoration: none;
+    text-align: center;
 }
 
 section {
