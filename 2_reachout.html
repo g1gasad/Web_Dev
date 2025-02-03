@@ -1,66 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .club-names {
-        color: rgb(0, 0, 0);
-        font-size: large;
-    }
-</style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            margin-top: 200px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .name-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .name-container input {
+            width: 100%;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
 
 <body>
     <div class="form-container">
-    <header>
-        <h1>Submit the form and reach out to us!</h1>
-    </header>
+        <header>
+            <h1>Submit the form and reach out to us!</h1>
+        </header>
 
-    Name: <input name="first name" type="text" placeholder="first name">
-    <input name="last name" type="text" placeholder="last name">
-    <br>
-    <br>
-    <div>
-        Contact: <input name="email" type="email" placeholder="Your email id" required />
-        Password: <input name="password" type="password" placeholder="enter your password" required />
-    </div>
-    <br>
-    <div class="club-names">
-        <b>Club Name: </b><select name=" clubs ">
-            <option value="Real Madrid">Real Madrid</option>
-            <option value="Arsenal">Arsenal</option>
-            <option value="Barcelona">Barcelona</option>
-            <option value="Liverpool">Liverpool</option>
-            <option value="select" selected>Select</option>
-        </select>
-    </div>
-    <hr>
-    Address: <textarea name=" address " rows="4" cols="30" placeholder="Your Address"></textarea>
-    <hr>
-    <div>
-        Country: <select name="country">
-            <option value="Brazil">Brazil</option>
-            <option value="France">France</option>
-            <option value="select" selected>Select</option>
-        </select>
-    </div>
-    <br>
-    <div>
-        Which position do you prefer: <select name="position">
-            <option value="Defence">Defence</option>
-            <option value="Mid">Mid</option>
-            <option value="Forward">Forward</option>
-            <option value="select" selected>Select</option>
-        </select>
-    </div>
-    <hr>
+        <label>Name: </label>
+        <div class="name-container">
+            <input name="first name" type="text" placeholder="First Name">
+            <input name="last name" type="text" placeholder="Last Name">
+        </div>
 
-    <br>
-    <label>Rating: </label><input type=" number " name=" quantity " min="1" max="5">
-    <br />
-    <br>
-    Signature: <input type=" file " name=" myFile ">
-    <br>
-    <br>
-    <button type="button">Submit</button>
-</div>
+        <br>
+        <div>
+            Contact: <input name="email" type="email" placeholder="Your email id" required />
+            Password: <input name="password" type="password" placeholder="Enter your password" required />
+        </div>
+        <br>
+        <div class="club-names">
+            <label><b>Club Name: </b></label><select name=" clubs ">
+                <option value="Real Madrid">Real Madrid</option>
+                <option value="Arsenal">Arsenal</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Liverpool">Liverpool</option>
+                <option value="select" selected>Select</option>
+            </select>
+        </div>
+        <hr>
+        Address: <textarea name=" address " rows="4" cols="30" placeholder="Your Address"></textarea>
+        <hr>
+        <div>
+            Country: <select name="country">
+                <option value="Brazil">Brazil</option>
+                <option value="France">France</option>
+                <option value="select" selected>Select</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            Which position do you prefer: <select name="position">
+                <option value="Defence">Defence</option>
+                <option value="Mid">Mid</option>
+                <option value="Forward">Forward</option>
+                <option value="select" selected>Select</option>
+            </select>
+        </div>
+        <hr>
+        <div>
+            <label>Rating: </label>
+            <input type=" number " name=" quantity " min="1" max="5">
+        </div>
+
+        <div>
+            <label>Signature: </label>
+            <input type=" file " name=" myFile ">
+        </div>
+
+        <button type="button">Submit</button>
+    </div>
 </body>
 
 </html>
