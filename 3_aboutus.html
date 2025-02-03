@@ -5,22 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        iframe {
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1></h1>
-    </header>
-    <iframe width="460" height="245" 
-    src="https://www.youtube.com/embed/OUKGsb8CpF8?si=SYsnF99OzZW-ownD&amp;start=60" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen></iframe>
-    
-
+    <header>About Us</header>
+    <div class="container">
+        <!-- <h2>Welcome to Our Page</h2> -->
+        <p>Learn more about us by watching the video below:</p>
+        <iframe width="460" height="245" 
+            src="https://www.youtube.com/embed/OUKGsb8CpF8?si=SYsnF99OzZW-ownD&amp;start=60" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+    </div>
 </body>
 
 </html>
