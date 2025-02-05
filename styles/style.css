@@ -35,7 +35,7 @@
 .light-theme {
     color: rgb(0, 0, 0);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: rgb(219, 255, 251);
+    background-color: rgb(83, 83, 83);
     margin: 10px;
     padding: 0px, 0px, 0px, 0px;
     line-height: 1.6;
@@ -67,15 +67,15 @@ h1 {
     padding-top: 0px;
     font-size: 20px;
 }
-nav {
+.nav-options {
     background: #0386a6;
     padding: 0.3rem;
-    /* text-align: center; */
+    text-align: center;
 }
 
 nav a {
-    padding-left: 220px;
-    padding-right: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
     color: white;
     /* margin: 10px; */
     text-decoration: none;
