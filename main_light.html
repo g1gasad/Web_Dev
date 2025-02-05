@@ -8,13 +8,47 @@
 </head>
 <link rel="stylesheet" href="styles\style.css">
 
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial;
+    }
+
+    .header {
+        text-align: center;
+        padding: 32px;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .column img {
+        margin-top: 12px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
 <body class="light-theme">
     <header>
         <h1>Football Mania</h1>
         <p class="header-info">Stats and Info on your favourite players</p>
     </header>
 
-    <nav>
+    <nav class="nav-options">
         <a class="home" href="#home">Home</a>
         <!-- <a href="#articles">Articles</a> -->
         <a class="reachout" href="2_reachout.html">Reach Out</a>
@@ -23,6 +57,21 @@
 
     <section>
         <h2 id="home">Home</h2>
+        <div>
+
+        <div>
+            <img src="image grid/carvajal.jpg">
+            <img src="image grid/ramos.jpg">
+            <img src="image grid/casemiro.jpg">
+            <img src="image grid/varane.jpg">
+        </div>
+    </div>
+
+        <div>
+            <img src="image grid/marcelo.jpg">
+            <img src="image grid/ronaldoball.jpg">
+            <img src="image grid/courtois.jpg">
+        </div>
         <p>Home to your favourite players and their key stats</p>
 
         <h2 id="about">About</h2>
@@ -47,12 +96,20 @@
         </article>
 
         <article>
-            <h3>Article 2: Benefits of Structured Content</h3>
-            <p>Structured content ensures easy navigation and readability. It also simplifies webpage maintenance and
-                updates.</p>
+            <h3>Article 2: Greatest Club of 20th Century</h3>
+            <p>Real Madrid is more than a century old and have more than 100 trophies to their name.</p>
         </article>
 
         <h2 id="contact">Contact</h2>
+        <div>
+            <div>
+                <img src="image grid/benzema.jpg">
+                <img src="image grid/isco.jpg">
+                <img src="image grid/kroos.jpg">
+                <img src="image grid/modric.jpg">
+            </div>
+
+        </div>
         <p>For more information, please <a href="mailto:4h$4n4@rknec.com">email us</a>.</p>
     </section>
 
