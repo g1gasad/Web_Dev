@@ -8,6 +8,10 @@
 .aboutus{
     text-align: right;
 } */
+.audio-file{
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
 .first-grid{
     border: 1px solid rgb(141, 141, 141);
     border-color: #4e4e4e;    

@@ -1,20 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timetable</title>
     <style>
+        .img-crest {
+            width: 50px;
+            height: 50px;
+            padding-top: 5px;
+            margin: 0%;
+          }
+        img {
+            width: 60px;
+            height: 18px;
+            padding-bottom: 0%;
+            margin-bottom: 0%;
+            image-orientation: landscape;
+          }
+        .rma {
+            background-color: #ffffff;
+        }
+
+        .ars {
+            background-color: #e38181;
+        }
+
+        .bor {
+            background-color: #f2e069;
+        }
+
+        .mun {
+            background-color: #ff0000;
+        }
+
+        .bar {
+            background-color: #00096d;
+            color: #ffffff;
+        }
+
+        .chl {
+            background-color: #002aff;
+            color: #ffffff;
+        }
+
         body {
+            background-image: url("grass.jpeg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+
             font-family: Arial, sans-serif;
             margin: 20px;
             padding: 20px;
-            background-color: hsl(67, 100%, 88%);
+            background-color: hsl(0, 0%, 100%);
         }
+
         h2 {
             text-align: center;
             color: #000000;
         }
+
         table {
             width: 100%;
             padding: 5px;
@@ -22,15 +68,19 @@
             margin: 5px;
             background-color: #ffffff;
         }
-        th, td {
+
+        th,
+        td {
             border: 2px solid #000000;
             padding: 2px;
             text-align: center;
         }
+
         th {
             background-color: #c8fffb;
             color: rgb(0, 0, 0);
         }
+
         .footer {
             margin-top: 30px;
             text-align: center;
@@ -38,127 +88,123 @@
         }
     </style>
 </head>
+
 <body>
 
-<h2>Favourite Team Fixtures!</h2>
+    <!-- <h2>Favourite Team Fixtures!</h2> -->
 
-<table>
-    <thead>
-        <tr>
-            <th>Team - February</th>
-            <th>9</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-            <th>13</th>
-            <th>14</th>
-            <th>15</th>
-            <th>16</th>
-            <th>17</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Real Madrid</td>
-            <td>LaLiga</td>
-            <td></td>
-            <td></td>
-            <td>ECST4004</td>
-            <td>R</td>
-            <td>ECST4003</td>
-            <td>MBT</td>
-            <td colspan="2">ECSP4005/B1/SS <br> 
-                ECSP4003/B2/DMK <br> 
-                ECSP4001/B3/PUJ <br> 
-                ECSP4005/B4/PK</td>
-        </tr>
-        <tr>
-            <td>Arsenal</td>
-            <td>-</td>
-            <td><td>ECST4002</td></td>
-            <td>ECST4001</td>
-            <td>E</td>
-            <td colspan="2">ECSP4005/B2/SS <br> 
-                ECSP4003/B3/DMK <br> 
-                ECSP4001/B4/PUJ <br> 
-                ECSP4005/B1/PK</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Borussia Dortmund</td>
-            <td>-</td>
-            <td>ECST4100</td>
-            <td>ECST4004</td>
-            <td>ECST4002</td>
-            <td>C</td>
-            <td>ECST4003</td>
-            <td>MBT</td>
-            <td colspan="2">ECSP4005/B3/SS <br> 
-                ECSP4003/B4/DMK <br> 
-                ECSP4001/B1/PUJ <br> 
-                ECSP4005/B2/PK</td>
-        </tr>
-        <tr>
-            <td>Manchester United</td>
-            <td>-</td>
-            <td>-</td>
-            <td>ECST4001</td>
-            <td>ECST4002</td>
-            <td>E</td>
-            <td colspan="2">ECSP4005/B4/SS <br> 
-                ECSP4003/B1/DMK <br> 
-                ECSP4001/B2/PUJ <br> 
-                ECSP4005/B3/PK</td>
-            <td>-</td>
-            <td>-</td>
-           
-        </tr>
-        <tr>
-            <td>Barcelona</td>
-            <td>OE</td>
-            <td>ECST4100</td>
-            <td>ECST4100</td>
-            <td>ECST4004</td>
-            <td>S</td>
-            <td>ECST4003</td>
-            <td>ECST4001</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Chelsea</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td><b>S</b></td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-    </tbody>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Team - February</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="rma">
+                <td>Real Madrid<br><img class="img-crest" src="img\crest\rma.png"></td>
+                <td>LaLiga <img src="img\logo\laliga.png"><br>Atletico de Madrid</td>
+                <td></td>
+                <td></td>
+                <td>UCL <img src="img\logo\ucl.png"><br>Manchester City</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
 
-<div class="footer">
-    <p>Class Incharge: Prof. S.V. Laddha</p>
-    <p>Time Table Incharge: Dr. B.M. Hardas</p>
-    <p>Head of Department: Dr. N.P. Narkhede</p>
-</div>
-<table>
+            </tr>
+            <tr class="ars">
+                <td>Arsenal<br><img class="img-crest" src="img\crest\ars.png"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>EPL <img src="img\logo\epl.png"><br>Newcastle United</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="bor">
+                <td>Borussia Dortmund<br><img class="img-crest" src="img\crest\bor.png"></td>
+                <td>Bundesliga <img src="img\logo\bundesliga.png"><br>Stuttgard</td>
+                <td></td>
+                <td></td>
+                <td>UCL <img src="img\logo\ucl.png"><br>Paris Saint Germain</td>
+                <td></td>
+                <td></td>
+                <td>Bundesliga <img src="img\logo\bundesliga.png"><br>RB Leipzig</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="mun">
+                <td>Manchester United<br><img class="img-crest" src="img\crest\mun.png"></td>
+                <td></td>
+                <td>FA Cup <img src="img\logo\facup.png"><br>Tottenham</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>EPL <img src="img\logo\epl.png"><br>Swansea City</td>
+                <td></td>
+
+            </tr>
+            <tr class="bar">
+                <td>Barcelona<br><img class="img-crest" src="img\crest\bar.png"></td>
+                <td></td>
+                <td>LaLiga <img src="img\logo\laliga.png"><br>Rayo Valecano</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>LaLiga <img src="img\logo\laliga.png"><br>Valencia</td>
+            </tr>
+            <tr class="chl">
+                <td>Chelsea<br><img class="img-crest" src="img\crest\chl.png"></td>
+                <td></td>
+                <td></td>
+                <td>FA Cup <img src="img\logo\facup.png"><br>Nottingham Forest</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>EPL <img src="img\logo\epl.png"><br>Liverpool</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
     </table>
-<h3>Faculty Details</h3>
 
-<ul>
-    <li>ECST4001: Computer Architecture and Organization: Prof. R.H. Khobragade</li>
-    <li>ECST4002: Design and Analysis of Algorithms: Dr. B.M. Hardas</li>
-    <li>ECST4003: Software Engineering: Dr. D.M. Kolambkar</li>
-    <li>ECST4004: Statistics for Data Analysis: Prof. S.V. Laddha</li>
-    <li>ECST4005: Software Laboratory: IY: J.A. Shrawankar, M.S. Shubal Sheikh (System Design Lab)</li>
-    <li>MBT: Business Management and Entrepreneurship: Prof. Pooja Khangar (Embedded Lab)</li>
-    <li>ECST4100: Single Dimensional Signal Processing on Edge: Prof. Rahul Dhuture</li>
-</ul>
-</table>
+    <div class="footer">
+        <p>Class Incharge: Prof. S.V. Laddha</p>
+        <p>Time Table Incharge: Dr. B.M. Hardas</p>
+        <p>Head of Department: Dr. N.P. Narkhede</p>
+    </div>
+    <table>
+    </table>
+    <!-- <h3>Faculty Details</h3> -->
+
+    <!-- <ul>
+        <li>ECST4001: Computer Architecture and Organization: Prof. R.H. Khobragade</li>
+        <li>ECST4002: Design and Analysis of Algorithms: Dr. B.M. Hardas</li>
+        <li>ECST4003: Software Engineering: Dr. D.M. Kolambkar</li>
+        <li>ECST4004: Statistics for Data Analysis: Prof. S.V. Laddha</li>
+        <li>ECST4005: Software Laboratory: IY: J.A. Shrawankar, M.S. Shubal Sheikh (System Design Lab)</li>
+        <li>MBT: Business Management and Entrepreneurship: Prof. Pooja Khangar (Embedded Lab)</li>
+        <li>ECST4100: Single Dimensional Signal Processing on Edge: Prof. Rahul Dhuture</li>
+    </ul> -->
 
 </body>
+
 </html>
