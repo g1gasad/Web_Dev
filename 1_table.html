@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timetable</title>
+    <title>Fixtures</title>
     <style>
         .img-crest {
             width: 50px;
@@ -12,12 +12,14 @@
             padding-top: 5px;
             margin: 0%;
         }
+
         .img-logo {
             width: 70px;
             height: 30px;
             padding-top: 0px;
             margin: 0%;
         }
+
         img {
             width: 60px;
             height: 18px;
@@ -65,6 +67,10 @@
         }
 
         h2 {
+            padding: 5px;
+            border: 1px solid #000000;
+            margin-left: 34%;
+            margin-right: 34%;
             text-align: center;
             color: #000000;
         }
@@ -77,7 +83,6 @@
             background-color: #ffffff;
         }
 
-        th,
         td {
             border: 2px solid #000000;
             padding: 2px;
@@ -87,24 +92,26 @@
         th {
             background-color: #c8fffb;
             color: rgb(0, 0, 0);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         .footer {
             display: flex;
             flex-direction: column;
-            border: 1px solid #ccc;
+            border: 1px solid #005019;
             background-color: #4fc372;
             margin-top: 30px;
-            text-align: center;
             font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 0px;
+            padding: 0px;
         }
     </style>
 </head>
 
 <body>
-
-    <!-- <h2>Favourite Team Fixtures!</h2> -->
-
+    <div>
+        <h2>Favourite Team Fixtures!</h2>
+    </div>
     <table>
         <thead>
             <tr>
@@ -199,12 +206,16 @@
     </table>
 
     <div class="footer">
-        <!-- <p>Class Incharge: Prof. S.V. Laddha</p> -->
-         <p><i><b>LaLiga</b></i> - Spain's Domestic League</p>
-         <p><i><b>PL</b></i> - Englands's Domestic League</p>
-         <p><i><b>Bundesliga</b></i> - Germany's Domestic League</p>
-         <p><i><b>FA Cup</b></i> - England's Tier-Wide League</p>
-         <p><i><b>UCL</b></i> - UEFA Champions League</p>
+        <ul>
+            <!-- <p>Class Incharge: Prof. S.V. Laddha</p> -->
+            <li><i><b>LaLiga</b></i> - Spain's Domestic League</li>
+            <li><i><b>PL</b></i> - Englands's Domestic League</li>
+            <li><i><b>Bundesliga</b></i> - Germany's Domestic League</li>
+            <li><i><b>FA Cup</b></i> - England's Tier-Wide League</li>
+            <li><i><b>UCL</b></i> - UEFA Champions League</li>
+        </ul>
+        <table>
+
     </div>
     <table>
     </table>
