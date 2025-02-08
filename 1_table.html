@@ -12,7 +12,12 @@
             padding-top: 5px;
             margin: 0%;
         }
-
+        .img-logo {
+            width: 70px;
+            height: 30px;
+            padding-top: 0px;
+            margin: 0%;
+        }
         img {
             width: 60px;
             height: 18px;
@@ -34,7 +39,8 @@
         }
 
         .mun {
-            background-color: #ff0000;
+            background-color: #cf0101;
+            color: white;
         }
 
         .bar {
@@ -48,7 +54,7 @@
         }
 
         body {
-            background-image: url("grass.jpeg");
+            background-image: url("img/grass.jpeg");
             background-repeat: no-repeat;
             background-size: 100%;
 
@@ -84,9 +90,13 @@
         }
 
         .footer {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            background-color: #4fc372;
             margin-top: 30px;
             text-align: center;
-            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
         }
     </style>
 </head>
@@ -113,10 +123,10 @@
         <tbody>
             <tr class="rma">
                 <td>Real Madrid<br><img class="img-crest" src="img\crest\rma.png"></td>
-                <td>LaLiga <img src="img\logo\laliga.png"><br>Atletico de Madrid</td>
+                <td><img class="img-logo" src="img\logo\laliga.png"><br>Atletico Madrid</td>
                 <td></td>
                 <td></td>
-                <td>UCL <img src="img\logo\ucl.png"><br>Manchester City</td>
+                <td><img class="img-logo" src="img\logo\ucl.png"><br>Manchester City</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -132,56 +142,56 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>EPL <img src="img\logo\epl.png"><br>Newcastle United</td>
+                <td><img class="img-logo" src="img\logo\epl.png"><br>Newcastle United</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr class="bor">
                 <td>Borussia Dortmund<br><img class="img-crest" src="img\crest\bor.png"></td>
-                <td>Bundesliga <img src="img\logo\bundesliga.png"><br>Stuttgard</td>
+                <td><img class="img-logo" src="img\logo\bundesliga.png"><br>Stuttgard</td>
                 <td></td>
                 <td></td>
-                <td>UCL <img src="img\logo\ucl.png"><br>Paris Saint Germain</td>
+                <td><img class="img-logo" src="img\logo\ucl.png"><br>Paris Saint Germain</td>
                 <td></td>
                 <td></td>
-                <td>Bundesliga <img src="img\logo\bundesliga.png"><br>RB Leipzig</td>
+                <td><img class="img-logo" src="img\logo\bundesliga.png"><br>RB Leipzig</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr class="mun">
                 <td>Manchester United<br><img class="img-crest" src="img\crest\mun.png"></td>
                 <td></td>
-                <td>FA Cup <img src="img\logo\facup.png"><br>Tottenham</td>
+                <td><img class="img-logo" src="img\logo\facup.png"><br>Tottenham</td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>EPL <img src="img\logo\epl.png"><br>Swansea City</td>
+                <td><img class="img-logo" src="img\logo\epl.png"><br>Swansea City</td>
                 <td></td>
 
             </tr>
             <tr class="bar">
                 <td>Barcelona<br><img class="img-crest" src="img\crest\bar.png"></td>
                 <td></td>
-                <td>LaLiga <img src="img\logo\laliga.png"><br>Rayo Valecano</td>
+                <td><img class="img-logo" src="img\logo\laliga.png"><br>Rayo Valecano</td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>LaLiga <img src="img\logo\laliga.png"><br>Valencia</td>
+                <td><img class="img-logo" src="img\logo\laliga.png"><br>Valencia</td>
             </tr>
             <tr class="chl">
                 <td>Chelsea<br><img class="img-crest" src="img\crest\chl.png"></td>
                 <td></td>
                 <td></td>
-                <td>FA Cup <img src="img\logo\facup.png"><br>Nottingham Forest</td>
+                <td><img class="img-logo" src="img\logo\facup.png"><br>Nottingham Forest</td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>EPL <img src="img\logo\epl.png"><br>Liverpool</td>
+                <td><img class="img-logo" src="img\logo\epl.png"><br>Liverpool</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -189,9 +199,12 @@
     </table>
 
     <div class="footer">
-        <p>Class Incharge: Prof. S.V. Laddha</p>
-        <p>Time Table Incharge: Dr. B.M. Hardas</p>
-        <p>Head of Department: Dr. N.P. Narkhede</p>
+        <!-- <p>Class Incharge: Prof. S.V. Laddha</p> -->
+         <p><i><b>LaLiga</b></i> - Spain's Domestic League</p>
+         <p><i><b>PL</b></i> - Englands's Domestic League</p>
+         <p><i><b>Bundesliga</b></i> - Germany's Domestic League</p>
+         <p><i><b>FA Cup</b></i> - England's Tier-Wide League</p>
+         <p><i><b>UCL</b></i> - UEFA Champions League</p>
     </div>
     <table>
     </table>

@@ -82,21 +82,47 @@ h1 {
     padding-top: 0px;
     font-size: 20px;
 }
-.nav-options {
-    background: #0386a6;
-    padding: 0.3rem;
-    text-align: center;
-}
 
-nav a {
-    padding-left: 10%;
-    padding-right: 10%;
-    color: white;
-    /* margin: 10px; */
-    text-decoration: none;
+
+.bottom-grid{
+    border: 1px solid rgb(141, 141, 141);
+    border-color: #4e4e4e;    
+    padding: 5px;
+    padding-bottom: 0px;
+    align-items: center;
     text-align: center;
-    font-size: large;
+    font-size: x-large;
+    margin-bottom: 5px;
 }
+.nav-options {
+    display: flex; /* Enable Flexbox */
+    justify-content: space-around; /* Distribute links evenly */ /* or space-between, flex-start, flex-end, center, space-evenly */
+    align-items: center; /* Vertically align links */
+    /* Optional styling: */
+    padding: 5px; /* Add some padding around the nav */
+    border-bottom: 1px solid #ccc; /* Add a bottom border */
+    background-color: #0386a6; /* Add a background color */
+  }
+  
+  .nav-options a {
+    font-size: large;
+    text-decoration: none; /* Remove underlines */
+    color: #333; /* Set link color */
+    padding: 4px; /* Add padding for better click area */
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  }
+  
+  .nav-options a:hover {
+    background-color: #bcdcff; /* Change background on hover */
+    color: rgb(0, 0, 0); /* Change text color on hover */
+  }
+  
+  /* Optional: Style the active link */
+  .nav-options a.active { /* You'll need to add the "active" class dynamically */
+    background-color: #0056b3;
+    color: white;
+  }
 
 section {
     display: flex;
