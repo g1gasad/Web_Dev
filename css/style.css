@@ -8,14 +8,15 @@
 .aboutus{
     text-align: right;
 } */
-.audio-file{
+.audio-file {
     padding-top: 10px;
     padding-bottom: 0px;
 }
-.first-grid{
+
+.first-grid {
     display: flexbox;
     border: 1px solid rgb(141, 141, 141);
-    border-color: #4e4e4e;    
+    border-color: #4e4e4e;
     padding: 5px;
     padding-bottom: 0px;
     align-items: center;
@@ -35,9 +36,12 @@
 }
 
 .cris-image {
-    margin-left: 40px; /* Existing property */
-    border: 1px solid #a1f6ff; /* Adds a solid black border with 5px thickness */
-    border-radius: 5px; /* Optional: To give rounded corners */
+    margin-left: 40px;
+    /* Existing property */
+    border: 1px solid #a1f6ff;
+    /* Adds a solid black border with 5px thickness */
+    border-radius: 5px;
+    /* Optional: To give rounded corners */
 }
 
 
@@ -57,13 +61,38 @@ body {
     line-height: 1.6;
 }
 
-body.dark-mode {
+body.light-mode {
     color: rgb(0, 0, 0);
     font-family: Arial, sans-serif;
-    background-color: rgb(255, 185, 185);
-    margin: 0;
-    padding: 0;
+    background-color: #F4F8D3;
+    margin: 10px;
+    padding: 0px, 0px, 0px, 0px;
     line-height: 1.6;
+}
+
+body.light-mode header {
+    justify-content: center;
+    background: #A6F1E0;
+    color: #05407a;
+    padding: 2px;
+    text-align: center;
+    size: 10px;
+}
+body.light-mode .nav-options {
+    display: flex;
+    /* Enable Flexbox */
+    justify-content: space-around;
+    /* Distribute links evenly */
+    /* or space-between, flex-start, flex-end, center, space-evenly */
+    align-items: center;
+    /* Vertically align links */
+    /* Optional styling: */
+    padding: 5px;
+    /* Add some padding around the nav */
+    border-bottom: 1px solid #ccc;
+    /* Add a bottom border */
+    background-color: #F7CFD8;
+    /* Add a background color */
 }
 
 header {
@@ -76,22 +105,24 @@ header {
     text-align: center;
     size: 10px;
 }
+
 h1 {
     margin: 0px;
     margin-bottom: 0px;
     font-size: 60px;
     padding-bottom: 0px;
 }
-h2{
+
+h2 {
     margin-top: 0px;
     padding-top: 0px;
     font-size: 20px;
 }
 
 
-.bottom-grid{
+.bottom-grid {
     border: 1px solid rgb(141, 141, 141);
-    border-color: #4e4e4e;    
+    border-color: #4e4e4e;
     padding: 5px;
     padding-bottom: 0px;
     align-items: center;
@@ -99,35 +130,51 @@ h2{
     font-size: x-large;
     margin-bottom: 5px;
 }
+
 .nav-options {
-    display: flex; /* Enable Flexbox */
-    justify-content: space-around; /* Distribute links evenly */ /* or space-between, flex-start, flex-end, center, space-evenly */
-    align-items: center; /* Vertically align links */
+    display: flex;
+    /* Enable Flexbox */
+    justify-content: space-around;
+    /* Distribute links evenly */
+    /* or space-between, flex-start, flex-end, center, space-evenly */
+    align-items: center;
+    /* Vertically align links */
     /* Optional styling: */
-    padding: 5px; /* Add some padding around the nav */
-    border-bottom: 1px solid #ccc; /* Add a bottom border */
-    background-color: #0386a6; /* Add a background color */
-  }
-  
-  .nav-options a {
+    padding: 5px;
+    /* Add some padding around the nav */
+    border-bottom: 1px solid #ccc;
+    /* Add a bottom border */
+    background-color: #0386a6;
+    /* Add a background color */
+}
+
+.nav-options a {
     font-size: large;
-    text-decoration: none; /* Remove underlines */
-    color: #333; /* Set link color */
-    padding: 4px; /* Add padding for better click area */
-    border-radius: 5px; /* Add rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-  }
-  
-  .nav-options a:hover {
-    background-color: #bcdcff; /* Change background on hover */
-    color: rgb(0, 0, 0); /* Change text color on hover */
-  }
-  
-  /* Optional: Style the active link */
-  .nav-options a.active { /* You'll need to add the "active" class dynamically */
+    text-decoration: none;
+    /* Remove underlines */
+    color: #333;
+    /* Set link color */
+    padding: 4px;
+    /* Add padding for better click area */
+    border-radius: 5px;
+    /* Add rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transitions */
+}
+
+.nav-options a:hover {
+    background-color: #bcdcff;
+    /* Change background on hover */
+    color: rgb(0, 0, 0);
+    /* Change text color on hover */
+}
+
+/* Optional: Style the active link */
+.nav-options a.active {
+    /* You'll need to add the "active" class dynamically */
     background-color: #0056b3;
     color: white;
-  }
+}
 
 section {
     display: flex;

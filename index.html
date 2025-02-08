@@ -11,14 +11,14 @@
 
 <style>
     /* Toggle Switch Styles */
-    .dark-mode-toggle {
+    .light-mode-toggle {
         position: relative;
         display: inline-block;
         width: 60px;
         height: 34px;
     }
 
-    .dark-mode-toggle input {
+    .light-mode-toggle input {
         opacity: 0;
         width: 0;
         height: 0;
@@ -70,8 +70,8 @@
 
 <body>
     <header>
-        <label class="dark-mode-toggle">
-            <input type="checkbox" id="dark-mode-checkbox">
+        <label class="light-mode-toggle">
+            <input type="checkbox" id="light-mode-checkbox">
             <span class="slider"></span>
         </label>
         
@@ -156,23 +156,23 @@
 </body>
 
 <script>
-    const darkModeCheckbox = document.getElementById('dark-mode-checkbox');
-    const body = document.body; // Or select the element you want to apply dark mode to
+    const lightModeCheckbox = document.getElementById('light-mode-checkbox');
+    const body = document.body; // Or select the element you want to apply light mode to
 
-    // Check for saved dark mode preference in localStorage
-    const savedDarkMode = localStorage.getItem('dark-mode');
-    if (savedDarkMode === 'enabled') {
-        body.classList.add('dark-mode');
-        darkModeCheckbox.checked = true;
+    // Check for saved light mode preference in localStorage
+    const savedlightMode = localStorage.getItem('light-mode');
+    if (savedlightMode === 'enabled') {
+        body.classList.add('light-mode');
+        lightModeCheckbox.checked = true;
     }
 
-    darkModeCheckbox.addEventListener('change', () => {
-        if (darkModeCheckbox.checked) {
-            body.classList.add('dark-mode');
-            localStorage.setItem('dark-mode', 'enabled');
+    lightModeCheckbox.addEventListener('change', () => {
+        if (lightModeCheckbox.checked) {
+            body.classList.add('light-mode');
+            localStorage.setItem('light-mode', 'enabled');
         } else {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('dark-mode', 'disabled');
+            body.classList.remove('light-mode');
+            localStorage.setItem('light-mode', 'disabled');
         }
     });
 </script>
