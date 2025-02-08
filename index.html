@@ -4,48 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main</title>
+    <title>HomePage</title>
 </head>
 <link rel="stylesheet" href="css\style.css">
 
+
 <style>
-    * {
-        box-sizing: border-box;
+    /* Toggle Switch Styles */
+    .dark-mode-toggle {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
     }
 
-    body {
-        margin: 0;
-        font-family: Arial;
+    .dark-mode-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
     }
 
-    .header {
-        text-align: center;
-        padding: 32px;
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 34px;
     }
 
-    /* Create two equal columns that floats next to each other */
-    .column {
-        float: left;
-        width: 50%;
-        padding: 10px;
-    }
-
-    .column img {
-        margin-top: 12px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
+    .slider:before {
+        position: absolute;
         content: "";
-        display: table;
-        clear: both;
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
     }
 </style>
 
-<body class="light-theme">
+
+
+
+<body>
     <header>
+        <label class="dark-mode-toggle">
+            <input type="checkbox" id="dark-mode-checkbox">
+            <span class="slider"></span>
+        </label>
+        
         <h1>Football Mania</h1>
-        <p class="header-info">Stats and Info on your favourite players</p>
+        <h2>Stats and Info on your favourite players</h2>
+
     </header>
 
     <nav class="nav-options">
@@ -123,4 +155,25 @@
     </footer>
 </body>
 
+<script>
+    const darkModeCheckbox = document.getElementById('dark-mode-checkbox');
+    const body = document.body; // Or select the element you want to apply dark mode to
+
+    // Check for saved dark mode preference in localStorage
+    const savedDarkMode = localStorage.getItem('dark-mode');
+    if (savedDarkMode === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeCheckbox.checked = true;
+    }
+
+    darkModeCheckbox.addEventListener('change', () => {
+        if (darkModeCheckbox.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('dark-mode', 'enabled');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('dark-mode', 'disabled');
+        }
+    });
+</script>
 </html>
