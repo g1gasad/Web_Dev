@@ -78,6 +78,7 @@ body.light-mode header {
     text-align: center;
     size: 10px;
 }
+
 body.light-mode .nav-options {
     display: flex;
     /* Enable Flexbox */
