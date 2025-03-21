@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive MCQ Quiz</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .question {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .question ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .question li {
+            margin-bottom: 5px;
+        }
+        .option-button {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+        #submitBtn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .correct-answer {
+            font-weight: bold;
+            color: green;
+        }
+        .incorrect-answer {
+            font-weight: bold;
+            color: red;
+        }
+        #scoreDisplay {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive MCQ Quiz</h1>
+
+    <div id="quizQuestions">
+        
+    </div>
+
+    <button id="submitBtn">Submit Quiz</button>
+
+    <div id="scoreDisplay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizQuestions = document.getElementById('quizQuestions');
+            const submitBtn = document.getElementById('submitBtn');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+
+            const questions = [
+                {
+                    question: "What is the capital of France?",
+                    options: ["London", "Paris", "Berlin", "Madrid"],
+                    correctAnswer: "Paris"
+                },
+                {
+                    question: "Which planet is known as the Red Planet?",
+                    options: ["Venus", "Mars", "Jupiter", "Saturn"],
+                    correctAnswer: "Mars"
+                },
+                {
+                    question: "What is the largest mammal?",
+                    options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+                    correctAnswer: "Blue Whale"
+                },
+                {
+                    question: "Which programming language is used for web development?",
+                    options: ["Python", "Java", "JavaScript", "C++"],
+                    correctAnswer: "JavaScript"
+                },
+                {
+                    question: "What is the chemical symbol for water?",
+                    options: ["CO2", "NaCl", "H2O", "O2"],
+                    correctAnswer: "H2O"
+                },
+                {
+                    question: "What is the capital of France?",
+                    options: ["London", "Paris", "Berlin", "Madrid"],
+                    correctAnswer: "Paris"
+                },
+                {
+                    question: "Which planet is known as the Red Planet?",
+                    options: ["Venus", "Mars", "Jupiter", "Saturn"],
+                    correctAnswer: "Mars"
+                },
+                {
+                    question: "What is the largest mammal?",
+                    options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+                    correctAnswer: "Blue Whale"
+                },
+                {
+                    question: "Which programming language is used for web development?",
+                    options: ["Python", "Java", "JavaScript", "C++"],
+                    correctAnswer: "JavaScript"
+                },
+                {
+                    question: "What is the chemical symbol for water?",
+                    options: ["CO2", "NaCl", "H2O", "O2"],
+                    correctAnswer: "H2O"
+                },
+                {
+                    question: "What is the chemical symbol for water?",
+                    options: ["CO2", "NaCl", "H2O", "O2"],
+                    correctAnswer: "H2O"
+                }
+            ];
+
+            // Generate questions and options
+            questions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.innerHTML = `
+                    <p><strong>${index + 1}. ${question.question}</strong></p>
+                    <div id="options-container-${index}">
+                        ${question.options.map((option, optionIndex) => `
+                            <button class="option-button" data-question-index="${index}" data-option-index="${optionIndex}">${option}</button>
+                        `).join('')}
+                    </div>
+                `;
+                quizQuestions.appendChild(questionDiv);
+            });
+
+            // Handle option selection
+            quizQuestions.addEventListener('click', function(event) {
+                if (event.target.classList.contains('option-button')) {
+                    const questionIndex = event.target.dataset.questionIndex;
+                    const optionIndex = event.target.dataset.optionIndex;
+                    const optionsContainer = document.getElementById(`options-container-${questionIndex}`);
+                    
+                    // Deselect previously selected option
+                    optionsContainer.querySelectorAll('.option-button').forEach(button => {
+                        button.classList.remove('selected');
+                    });
+                    
+                    // Select clicked option
+                    event.target.classList.add('selected');
+                }
+            });
+
+            // Handle quiz submission
+            submitBtn.addEventListener('click', function() {
+                const optionButtons = quizQuestions.querySelectorAll('.option-button.selected');
+                
+                if (optionButtons.length !== questions.length) {
+                    alert("Please answer all questions before submitting.");
+                    return;
+                }
+
+                let score = 0; // Initialize score
+
+                optionButtons.forEach(button => {
+                    const questionIndex = button.dataset.questionIndex;
+                    const optionIndex = button.dataset.optionIndex;
+                    const selectedOption = questions[questionIndex].options[optionIndex];
+
+                    const questionDiv = button.closest('.question');
+                    questionDiv.innerHTML += `<p>Your Answer: ${selectedOption}</p>`;
+
+                    if (selectedOption === questions[questionIndex].correctAnswer) {
+                        questionDiv.innerHTML += `<p class="correct-answer">Correct!</p>`;
+                        score++; // Increment score if correct
+                    } else {
+                        questionDiv.innerHTML += `<p class="incorrect-answer">Incorrect. Correct Answer: ${questions[questionIndex].correctAnswer}</p>`;
+                    }
+                });
+
+                scoreDisplay.textContent = `Your Score: ${score} / ${questions.length}`; // Display score
+                submitBtn.disabled = true; // Disable submit button after submission
+            });
+        });
+    </script>
+</body>
+</html>

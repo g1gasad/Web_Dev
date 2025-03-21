@@ -63,99 +63,183 @@
         -ms-transform: translateX(26px);
         transform: translateX(26px);
     }
+
+    #stopwatch {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #display {
+        font-size: 2em;
+        margin-bottom: 10px;
+        background-color: #333;
+        /* Dark background */
+        color: #fff;
+        /* Light text */
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    #startStop,
+    #reset {
+        padding: 10px 20px;
+        font-size: 1em;
+        margin: 5px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+
+    #startStop {
+        background-color: #007bff;
+        /* Blue for start/stop */
+        color: white;
+    }
+
+    #reset {
+        background-color: #dc3545;
+        /* Red for reset */
+        color: white;
+    }
+
+    /* Light mode styles */
+    body.light-mode #display {
+        background-color: #eee;
+        /* Light background */
+        color: #000;
+        /* Dark text */
+    }
+
+    body.light-mode #startStop {
+        background-color: #42a5f5;
+        /* Lighter blue */
+    }
+
+    body.light-mode #reset {
+        background-color: #f44336;
+        /* Lighter red */
+    }
 </style>
 
 
 
 
 <body>
-    <header>
-        <label class="light-mode-toggle">
-            <input type="checkbox" id="light-mode-checkbox">
-            <span class="slider"></span>
-        </label>
+    <script src="js/stopwatch.js"></script>
+</body>
 
-        <h1>Football Mania</h1>
-        <h2>Stats and Info on your favourite players</h2>
+<header>
+    <label class="light-mode-toggle">
+        <input type="checkbox" id="light-mode-checkbox">
+        <span class="slider"></span>
+    </label>
 
-    </header>
+    <h1>Football Mania</h1>
+    <h2>Stats and Info on your favourite players</h2>
 
-    <nav class="nav-options">
-        <a class="home" href="#home">Home</a>
-        <a class="fixtures" href="1_table.html">Fixtures</a>
-        <a class="reachout" href="2_reachout.html">Reach Out</a>
-        <a class="aboutus" href="3_aboutus.html">About Us</a>
-    </nav>
+</header>
 
-    <section>
-        <h2 id="home">Home</h2>
-        <div class="first-grid">
+<nav class="nav-options">
+    <a class="home" href="#home">Home</a>
+    <a class="fixtures" href="1_table.html">Fixtures</a>
+    <a class="reachout" href="2_reachout.html">Reach Out</a>
+    <a class="aboutus" href="3_aboutus.html">About Us</a>
+    <a href="todo.html">Todo List</a>
+</nav>
 
-            <div>
-                <img src="img\300-168\carvajal.jpg">
-                <img src="img\300-168\ronaldoball.jpg">
-                <img src="img\300-168\isco.jpg">
-            </div>
-            <div>
-                <img src="img\300-168\casemiro.jpg">
-                <img src="img\300-168\kroos.jpg">
-                <img src="img\300-168\modric.jpg">
+<section>
+    <h2 id="home">Home</h2>
+    <div id="stopwatch">
+        <div id="display">00:00:00</div>
+        <button id="startStop">Start</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div class="first-grid">
 
-            </div>
-            <p>Home to your favourite players and their key stats</p>
+        <div>
+            <img src="img\300-168\carvajal.jpg">
+            <img src="img\300-168\ronaldoball.jpg">
+            <img src="img\300-168\isco.jpg">
         </div>
-        <div class="audio-file">
-            <audio controls autoplay>
-                <source src="audio_file\ronaldo_siu.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-
-
-        <h2 id="about">About</h2>
-        <p>This webpage demonstrates the use of semantic tags like <code>&lt;header&gt;</code>,
-            <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, and
-            <code>&lt;footer&gt;</code>.
-        </p>
-
-        <h2 id="articles">Articles</h2>
-        <article class="flex-container">
-            <div>
-                <h4>Cruising to 1000 Goals: Cristiano said he'll not stop
-                    <br> until he has scored at least 1000 goals to his name.
-                </h4>
-            </div>
-            <div class="cris-image">
-                <img src="img/cris.jpeg" alt="Cristiano Ronaldo" width="150" height="300">
-            </div>
-            <div class="cris-quote">
-                <p><b>Grit and Passion.</b></p>
-            </div>
-        </article>
-
-        <article>
-            <h3>Article 2: Greatest Club of 20th Century</h3>
-            <p>Real Madrid is more than a century old and have more than 100 trophies to their name.</p>
-        </article>
-
-        <h2 id="contact">Sponsors</h2>
-        <div class="bottom-grid">
-            <img src="img/275-183/benzema.jpg">
-            <img src="img/275-183/marcelo.jpg">
-            <img src="img/275-183/ramos.jpg">
-            <img src="img/275-183/varane.jpg">
+        <div>
+            <img src="img\300-168\casemiro.jpg">
+            <img src="img\300-168\kroos.jpg">
+            <img src="img\300-168\modric.jpg">
 
         </div>
+        <p>Home to your favourite players and their key stats</p>
+    </div>
+    <div class="audio-file">
+        <audio controls autoplay>
+            <source src="audio_file\ronaldo_siu.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
-        <p>For more information, please <a href="mailto:4h$4n4@rknec.com">email us</a>.</p>
-    </section>
 
-    <footer>
-        <p>&copy; 2025 My Web Page. All Rights Reserved.</p>
-    </footer>
+    <h2 id="about">About</h2>
+    <p>This webpage demonstrates the use of semantic tags like <code>&lt;header&gt;</code>,
+        <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, and
+        <code>&lt;footer&gt;</code>.
+    </p>
+
+    <h2 id="articles">Articles</h2>
+    <article class="flex-container">
+        <div>
+            <h4>Cruising to 1000 Goals: Cristiano said he'll not stop
+                <br> until he has scored at least 1000 goals to his name.
+            </h4>
+        </div>
+        <div class="cris-image">
+            <img id="crisImage" src="img/cris.jpeg" alt="Cristiano Ronaldo" width="150" height="300">
+            <img id="crisImage2" src="img/cris-freekick.jpg" alt="Ronaldo with ball" width="150" height="300" style="display: none;">
+            <button id="showCrisImage1">&#9664;</button> <button id="showCrisImage2">&#9654;</button> </div>
+        <div class="cris-quote">
+            <p><b>Grit and Passion.</b></p>
+        </div>
+    </article>
+
+    <article>
+        <h3>Article 2: Greatest Club of 20th Century</h3>
+        <p>Real Madrid is more than a century old and have more than 100 trophies to their name.</p>
+    </article>
+
+    <h2 id="contact">Sponsors</h2>
+    <div class="bottom-grid">
+        <img src="img/275-183/benzema.jpg">
+        <img src="img/275-183/marcelo.jpg">
+        <img src="img/275-183/ramos.jpg">
+        <img src="img/275-183/varane.jpg">
+
+    </div>
+
+    <p>For more information, please <a href="mailto:4h$4n4@rknec.com">email us</a>.</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 My Web Page. All Rights Reserved.</p>
+</footer>
 </body>
 
 <script>
+    // ... (Your existing JavaScript code) ...
+
+    const crisImage = document.getElementById('crisImage');
+    const crisImage2 = document.getElementById('crisImage2');
+    const showCrisImage1 = document.getElementById('showCrisImage1');
+    const showCrisImage2 = document.getElementById('showCrisImage2');
+
+    showCrisImage1.addEventListener('click', function() {
+        crisImage.style.display = 'block';
+        crisImage2.style.display = 'none';
+    });
+
+    showCrisImage2.addEventListener('click', function() {
+        crisImage.style.display = 'none';
+        crisImage2.style.display = 'block';
+    });
+    // ... (Your existing JavaScript code) ...
     const lightModeCheckbox = document.getElementById('light-mode-checkbox');
     const body = document.body; // Or select the element you want to apply light mode to
 
