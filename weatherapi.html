@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Font Awesome for the weather icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <div class="flex items-center justify-center gap-3 mb-6">
+            <i class="fas fa-cloud-sun text-3xl text-blue-500"></i>
+            <h1 class="text-2xl font-bold text-center">Weather App</h1>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="flex gap-2">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    placeholder="Enter city name" 
+                    class="flex-1 p-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                >
+                <button 
+                    onclick="getWeather()" 
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                >
+                    Search
+                </button>
+            </div>
+
+            <div id="weatherInfo" class="hidden space-y-2">
+                <div class="text-center text-xl font-semibold" id="cityName"></div>
+                <div class="flex justify-center my-4">
+                    <img id="weatherIcon" src="" alt="Weather icon" class="w-16 h-16">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-3 rounded-lg">
+                        <div class="text-gray-500">Temperature</div>
+                        <div id="temperature" class="text-lg font-bold"></div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg">
+                        <div class="text-gray-500">Weather</div>
+                        <div id="weatherDescription" class="text-lg font-bold"></div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg">
+                        <div class="text-gray-500">Humidity</div>
+                        <div id="humidity" class="text-lg font-bold"></div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg">
+                        <div class="text-gray-500">Wind Speed</div>
+                        <div id="windSpeed" class="text-lg font-bold"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="hidden text-red-500 text-center"></div>
+        </div>
+    </div>
+
+    <script>
+        async function getWeather() {
+            const cityInput = document.getElementById('cityInput').value;
+            const weatherInfo = document.getElementById('weatherInfo');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Replace 'YOUR_API_KEY' with your actual API key from OpenWeatherMap
+            const apiKey = 'ebb977a632f2f3d03d15496916d286c0';
+            
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`
+                );
+                
+                if (!response.ok) {
+                    throw new Error('City not found');
+                }
+
+                const data = await response.json();
+                
+                // Update the UI with weather data
+                document.getElementById('cityName').textContent = data.name;
+                document.getElementById('temperature').textContent = `${Math.round(data.main.temp)}°C`;
+                document.getElementById('weatherDescription').textContent = data.weather[0].main;
+                document.getElementById('humidity').textContent = `${data.main.humidity}%`;
+                document.getElementById('windSpeed').textContent = `${data.wind.speed} m/s`;
+                
+                // Update weather icon
+                const iconCode = data.weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+                document.getElementById('weatherIcon').src = iconUrl;
+                
+                weatherInfo.classList.remove('hidden');
+                errorMessage.classList.add('hidden');
+            } catch (error) {
+                weatherInfo.classList.add('hidden');
+                errorMessage.classList.remove('hidden');
+                errorMessage.textContent = 'City not found. Please try again.';
+            }
+        }
+
+        // Allow Enter key to trigger search
+        document.getElementById('cityInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                getWeather();
+            }
+        });
+    </script>
+</body>
+</html>
