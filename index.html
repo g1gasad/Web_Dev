@@ -24,21 +24,51 @@
         height: 0;
     }
 
+    .article-container {
+        display: flex;
+        align-items: center;
+        /* Vertically align items */
+        margin: 20px;
+        /* Add some margin around the article */
+    }
+
+    .article-text {
+        flex: 1;
+        /* Allow text to take remaining space */
+        padding-right: 20px;
+        /* Add some space between text and image */
+    }
+
+    .article-image {
+        width: 400px;
+        /* Reduced image width */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
     .slider-container {
         position: relative;
-        width: 150px;
-        height: 300px;
-        margin: 0 auto;
+        width: 100%;
+        border: 1px seashell;
         overflow: hidden;
+        padding-bottom: 56.25%;
+        /* 16:9 aspect ratio */
     }
 
     .slides {
         display: flex;
         transition: transform 0.5s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 
     .slide {
-        min-width: 100%;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -49,7 +79,7 @@
         background: rgba(0, 0, 0, 0.5);
         color: white;
         border: none;
-        padding: 8px 12px;
+        padding: 10px 15px;
         cursor: pointer;
         border-radius: 4px;
         transition: background-color 0.3s;
@@ -193,8 +223,8 @@
             </div>
             <div class="audio-file">
                 <audio controls autoplay>
-                    <source src="audio_file\ronaldo_siu.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
+                    <source src="audio_file\ronaldo_siu.mp3" type="audio/mp3">
+                    <!-- Your browser does not support the audio element. -->
                 </audio>
             </div>
 
@@ -206,31 +236,28 @@
             </p>
 
             <h2 id="articles">Articles</h2>
-            <article class="flex-container">
-                <div>
+            <article class="article-container">
+                <div class="article-text">
                     <h4>Cruising to 1000 Goals: Cristiano said he'll not stop
                         <br> until he has scored at least 1000 goals to his name.
                     </h4>
                 </div>
-                <!-- Replace your existing cris-image div with this -->
-                <div class="cris-image">
+
+                <div class="article-image">
                     <div class="slider-container">
                         <div class="slides">
-                            <img id="crisImage" class="slide" src="img/cris.jpeg" alt="Cristiano Ronaldo" width="150"
-                                height="300">
-                            <img id="crisImage2" class="slide" src="img/cris-freekick.jpg" alt="Ronaldo with ball"
-                                width="150" height="300">
+                            <img class="slide" src="img/bernabeu/bernabeu-2.jpg" alt="Estadio Santiago Bernabeu">
+                            <img class="slide" src="img/bernabeu/bernabeu-3.jpg" alt="Estadio Santiago Bernabeu">
+                            <img class="slide" src="img/bernabeu/bernabeu-4.jpg" alt="Estadio Santiago Bernabeu">
+                            <img class="slide" src="img/bernabeu/bernabeu-5.png" alt="Estadio Santiago Bernabeu">
                         </div>
-                        <button class="slider-btn prev" id="showCrisImage1">&#9664;</button>
-                        <button class="slider-btn next" id="showCrisImage2">&#9654;</button>
+                        <button class="slider-btn prev" id="prevSlide">&#9664;</button>
+                        <button class="slider-btn next" id="nextSlide">&#9654;</button>
                         <div class="dots"></div>
                     </div>
                 </div>
-
-                <div class="cris-quote">
-                    <p><b>Grit and Passion.</b></p>
-                </div>
             </article>
+
 
             <article>
                 <h3>Article 2: Greatest Club of 20th Century</h3>
@@ -256,58 +283,84 @@
     <script>
         const sliderContainer = document.querySelector('.slider-container');
         const slides = document.querySelector('.slides');
-        const prevBtn = document.getElementById('showCrisImage1');
-        const nextBtn = document.getElementById('showCrisImage2');
+        const prevButton = document.getElementById('prevSlide');
+        const nextButton = document.getElementById('nextSlide');
         const dotsContainer = document.querySelector('.dots');
+        const slidesCount = document.querySelectorAll('.slide').length;
+        let slideIndex = 0;
 
-        let currentSlide = 0;
-        const totalSlides = document.querySelectorAll('.slide').length;
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('div');
+        // Create Dots
+        for (let i = 0; i < slidesCount; i++) {
+            const dot = document.createElement('span');
             dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
+            if (i === 0) {
+                dot.classList.add('active');
+            }
             dotsContainer.appendChild(dot);
-        }
-
-        function updateDots() {
-            document.querySelectorAll('.dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
+            dot.addEventListener('click', () => {
+                slideIndex = i;
+                updateSlider();
             });
         }
 
-        function goToSlide(index) {
-            currentSlide = index;
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-            updateDots();
+        const dots = document.querySelectorAll('.dot');
+
+        // Update Slider Function
+        function updateSlider() {
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
         }
 
-        prevBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            goToSlide(currentSlide);
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
-        });
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        sliderContainer.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        sliderContainer.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 50) {
-                nextBtn.click();
-            } else if (touchEndX - touchStartX > 50) {
-                prevBtn.click();
+        // Next Button Click
+        nextButton.addEventListener('click', () => {
+            slideIndex++;
+            if (slideIndex >= slidesCount) {
+                slideIndex = 0;
             }
+            updateSlider();
         });
 
+        // Previous Button Click
+        prevButton.addEventListener('click', () => {
+            slideIndex--;
+            if (slideIndex < 0) {
+                slideIndex = slidesCount - 1;
+            }
+            updateSlider();
+        });
+
+        // Auto-Play (Optional)
+        let autoplayInterval = setInterval(() => {
+            slideIndex++;
+            if (slideIndex >= slidesCount) {
+                slideIndex = 0;
+            }
+            updateSlider();
+        }, 3000);
+
+        // Stop Autoplay on Hover (Optional)
+        sliderContainer.addEventListener('mouseover', () => {
+            clearInterval(autoplayInterval);
+        });
+
+        sliderContainer.addEventListener('mouseout', () => {
+            autoplayInterval = setInterval(() => {
+                slideIndex++;
+                if (slideIndex >= slidesCount) {
+                    slideIndex = 0;
+                }
+                updateSlider();
+            }, 3000);
+        });
+
+        //      Page theme js code here
         const lightModeCheckbox = document.getElementById('light-mode-checkbox');
         const body = document.body; // Or select the element you want to apply light mode to
 
