@@ -24,44 +24,69 @@
         height: 0;
     }
 
-    .slider {
+    .slider-container {
+        position: relative;
+        width: 150px;
+        height: 300px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+        min-width: 100%;
+        object-fit: cover;
+    }
+
+    .slider-btn {
         position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 8px 12px;
         cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-        border-radius: 34px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        z-index: 1;
     }
 
-    .slider:before {
+    .slider-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .dots {
         position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
     }
 
-    input:checked+.slider {
-        background-color: #2196F3;
-    }
-
-    input:focus+.slider {
-        box-shadow: 0 0 1px #2196F3;
-    }
-
-    input:checked+.slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
+    .dot.active {
+        background: white;
     }
 
     #stopwatch {
@@ -145,7 +170,7 @@
     </nav>
     <main>
         <section>
-            <h2 id="home">Home</h2>
+            <!-- <h2 id="home">Home</h2> -->
             <div id="stopwatch">
                 <div id="display">00:00:00</div>
                 <button id="startStop">Start</button>
@@ -187,12 +212,21 @@
                         <br> until he has scored at least 1000 goals to his name.
                     </h4>
                 </div>
+                <!-- Replace your existing cris-image div with this -->
                 <div class="cris-image">
-                    <img id="crisImage" src="img/cris.jpeg" alt="Cristiano Ronaldo" width="150" height="300">
-                    <img id="crisImage2" src="img/cris-freekick.jpg" alt="Ronaldo with ball" width="150" height="300"
-                        style="display: none;">
-                    <button id="showCrisImage1">&#9664;</button> <button id="showCrisImage2">&#9654;</button>
+                    <div class="slider-container">
+                        <div class="slides">
+                            <img id="crisImage" class="slide" src="img/cris.jpeg" alt="Cristiano Ronaldo" width="150"
+                                height="300">
+                            <img id="crisImage2" class="slide" src="img/cris-freekick.jpg" alt="Ronaldo with ball"
+                                width="150" height="300">
+                        </div>
+                        <button class="slider-btn prev" id="showCrisImage1">&#9664;</button>
+                        <button class="slider-btn next" id="showCrisImage2">&#9654;</button>
+                        <div class="dots"></div>
+                    </div>
                 </div>
+
                 <div class="cris-quote">
                     <p><b>Grit and Passion.</b></p>
                 </div>
@@ -220,23 +254,60 @@
     </footer>
 
     <script>
-        // ... (Your existing JavaScript code) ...
+        const sliderContainer = document.querySelector('.slider-container');
+        const slides = document.querySelector('.slides');
+        const prevBtn = document.getElementById('showCrisImage1');
+        const nextBtn = document.getElementById('showCrisImage2');
+        const dotsContainer = document.querySelector('.dots');
 
-        const crisImage = document.getElementById('crisImage');
-        const crisImage2 = document.getElementById('crisImage2');
-        const showCrisImage1 = document.getElementById('showCrisImage1');
-        const showCrisImage2 = document.getElementById('showCrisImage2');
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
 
-        showCrisImage1.addEventListener('click', function () {
-            crisImage.style.display = 'block';
-            crisImage2.style.display = 'none';
+        function updateDots() {
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(currentSlide);
         });
 
-        showCrisImage2.addEventListener('click', function () {
-            crisImage.style.display = 'none';
-            crisImage2.style.display = 'block';
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
         });
-        // ... (Your existing JavaScript code) ...
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        sliderContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextBtn.click();
+            } else if (touchEndX - touchStartX > 50) {
+                prevBtn.click();
+            }
+        });
+
         const lightModeCheckbox = document.getElementById('light-mode-checkbox');
         const body = document.body; // Or select the element you want to apply light mode to
 
@@ -246,7 +317,6 @@
             body.classList.add('light-mode');
             lightModeCheckbox.checked = true;
         }
-
         lightModeCheckbox.addEventListener('change', () => {
             if (lightModeCheckbox.checked) {
                 body.classList.add('light-mode');
@@ -258,5 +328,4 @@
         });
     </script>
 </body>
-
 </html>

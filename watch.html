@@ -150,108 +150,35 @@ initial-scale=1.0">
 
 
         }
-
-
-
-
-
         function startStopwatch() {
-
-
             if (!timer) {
-
-
                 timer = setInterval(() => {
-
-
                     seconds++;
-
-
                     if (seconds === 60) {
-
-
                         seconds = 0;
-
-
                         minutes++;
-
-
                         if (minutes === 60) {
-
-
                             minutes = 0;
-
-
                             hours++;
-
-
                         }
-
-
                     }
-
-
                     updateDisplay();
-
-
                 }, 1000);
-
-
             }
-
-
         }
-
-
-
-
-
         function stopStopwatch() {
-
-
             clearInterval(timer);
-
-
             timer = null;
-
-
         }
-
-
-
-
-
         function resetStopwatch() {
-
-
             stopStopwatch();
-
-
             seconds = 0;
-
-
             minutes = 0;
-
-
             hours = 0;
-
-
             updateDisplay();
-
-
         }
-
-
-
-
 
         updateDisplay();
-
-
     </script>
-
-
 </body>
-
-
 </html>
