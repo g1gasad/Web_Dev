@@ -14,7 +14,59 @@
 }
 
 .first-grid {
-    display: flexbox;
+    display: flex;
+    width: 930px; /* Set your desired width */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(141, 141, 141);
+    padding: 5px;
+    padding-bottom: 0px;
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 20px;
+}
+
+.first-grid img {
+    /* width: 100px; Adjust as needed */
+    height: auto;
+    margin: 1px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+}
+
+.first-grid img:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow */
+}
+
+.bottom-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(141, 141, 141);
+    padding: 5px;
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 5px;
+}
+
+.bottom-grid img {
+    /* width: 100px; Adjust as needed */
+    height: auto;
+    margin: 3px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+}
+
+.bottom-grid img:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow */
+}
+/* .bottom-grid {
     border: 1px solid rgb(141, 141, 141);
     border-color: #4e4e4e;
     padding: 5px;
@@ -22,8 +74,8 @@
     align-items: center;
     text-align: center;
     font-size: x-large;
-    margin-bottom: 10px;
-}
+    margin-bottom: 5px;
+} */
 
 .cris-quote {
     /* textsiz; */
@@ -121,43 +173,24 @@ h2 {
 }
 
 
-.bottom-grid {
-    border: 1px solid rgb(141, 141, 141);
-    border-color: #4e4e4e;
-    padding: 5px;
-    padding-bottom: 0px;
-    align-items: center;
-    text-align: center;
-    font-size: x-large;
-    margin-bottom: 5px;
-}
 
 .nav-options {
     display: flex;
-    /* Enable Flexbox */
-    justify-content: space-around;
-    /* Distribute links evenly */
-    /* or space-between, flex-start, flex-end, center, space-evenly */
+    justify-content: center;
     align-items: center;
-    /* Vertically align links */
-    /* Optional styling: */
     padding: 5px;
-    /* Add some padding around the nav */
     border-bottom: 1px solid #ccc;
-    /* Add a bottom border */
     background-color: #0386a6;
-    /* Add a background color */
 }
 
 .nav-options a {
     font-size: large;
-    text-decoration: none;
-    /* Remove underlines */
     color: #333;
+    margin-right: 10px;
     /* Set link color */
-    padding: 4px;
+    padding: 10px 50px;
     /* Add padding for better click area */
-    border-radius: 5px;
+    border-radius: 20px;
     /* Add rounded corners */
     transition: background-color 0.3s ease, color 0.3s ease;
     /* Smooth transitions */
