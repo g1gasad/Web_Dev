@@ -17,8 +17,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            /* justify-content: center; */ /* Removed to allow content to flow from top */
+            min-height: 100vh; /* Changed to min-height */
             background-color: #f4f4f4;
         }
 
@@ -43,31 +43,72 @@
             margin-top: 10px;
             border-radius: 10px;
         }
+
+        .content-wrapper {
+            display: flex;
+            width: 90%; /* Adjust as needed */
+            max-width: 1200px; /* Adjust as needed */
+            margin: 20px auto;
+            gap: 20px;
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-section {
+            flex: 1;
+        }
+        .ytvid-container, .map-container{
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .league-standings-container{
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
 <body>
     <header>About Us</header>
-    <div class="container">
-        <!-- <h2>Welcome to Our Page</h2> -->
-        <p>Learn more about us by watching the video below:</p>
-        <iframe width="460" height="245"
-            src="https://www.youtube.com/embed/OUKGsb8CpF8?si=SYsnF99OzZW-ownD&amp;start=60"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        </iframe>
-    </div>
-    <div>
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.8604798233628!2d79.08090107500364!3d21.15794998332937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0e625555555%3A0xa5b8a03c3e7d87ef!2sChopra&#39;
-        s%20Hostel%20and%20PG!5e0!3m2!1sen!2sin!4v1738584575450!5m2!1sen!2sin" width="400" height="300"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div>
-        <iframe id="sofa-standings-embed-138314-61644" src="https://widgets.sofascore.com/en-US/embed/tournament/138314/season/61644/standings/UEFA%20Champions%20League?widgetTitle=UEFA%20Champions%20League&showCompetitionLogo=true" style=height:1763px!important;max-width:768px!important;width:100%!important; frameborder="0" scrolling="no"></iframe>
-    <div style="font-size:12px;font-family:Arial,sans-serif;text-align:left">
-      Standings provided by <a target="_blank" href="https://www.sofascore.com/">Sofascore</a>
-    </div>
+    <div class="content-wrapper">
+        <div class="left-section">
+            <div class="ytvid-container">
+                <p>Learn more about us by watching the video below:</p>
+                <iframe width="460" height="245"
+                    src="https://www.youtube.com/embed/OUKGsb8CpF8?si=SYsnF99OzZW-ownD&amp;start=60"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="map-container">
+                <iframe class="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.8604798233628!2d79.08090107500364!3d21.15794998332937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0e625555555%3A0xa5b8a03c3e7d87ef!2sChopra&#39;s%20Hostel%20and%20PG!5e0!3m2!1sen!2sin!4v1738584575450!5m2!1sen!2sin"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="league-standings-container">
+                <iframe id="sofa-standings-embed-36-61643"
+                    src="https://widgets.sofascore.com/en-US/embed/tournament/36/season/61643/standings/LaLiga?widgetTitle=LaLiga&showCompetitionLogo=true"
+                    style="height:1123px!important;max-width:768px!important;width:100%!important;" frameborder="0"
+                    scrolling="no"></iframe>
+                <div style="font-size:12px;font-family:Arial,sans-serif;text-align:left">
+                    Standings provided by <a target="_blank" href="https://www.sofascore.com/">Sofascore</a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
